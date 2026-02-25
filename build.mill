@@ -1,0 +1,29 @@
+//| mvnDeps: ["com.goyeau::mill-scalafix_mill1:0.6.0"]
+
+import mill._
+import mill.scalalib._
+import com.goyeau.mill.scalafix.ScalafixModule
+
+object pdaqp_design extends ScalaModule, ScalafixModule {
+  def scalaVersion = "2.13.18"
+
+  def chiselVersion = "7.9.0"
+
+  def mvnDeps = Seq(
+    mvn"org.chipsalliance::chisel:${chiselVersion}"
+  )
+
+  def scalacPluginMvnDeps = Seq(
+    mvn"org.chipsalliance:::chisel-plugin:${chiselVersion}"
+  )
+
+  def scalacOptions = Seq(
+    "-deprecation",
+    "-feature",
+    "-unchecked",
+    "-Wunused",
+    "-language:reflectiveCalls",
+    "-Ymacro-annotations"
+  )
+
+}

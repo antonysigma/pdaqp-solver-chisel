@@ -1,0 +1,3 @@
+read_systemverilog @pdaqp_sv@
+synth_xilinx -family xc7 -flatten -top @TOP@
+stat -tech xilinx
